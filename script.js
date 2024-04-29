@@ -24,7 +24,7 @@ for(seat of allSeats){
 }
 
 
-movieSelect.addEventListener("change", function(event) {
+movieSelect.addEventListener("change", (event) => {
     //film değiştirme işlemi yapılırsa seatlerin classlarını kaldır.
     for(seat of allSeats){
         seat.classList.remove("selected");
@@ -34,7 +34,7 @@ movieSelect.addEventListener("change", function(event) {
     updateStatus(selectedOption);
 });
 
-function updateStatus(selectedMovie){
+const updateStatus = (selectedMovie) =>{
     selSeatCount = 0; // dropdown'dan seçimlerde selected seat 0'lansın.
     seatCountInfos();
     payment();
@@ -54,7 +54,7 @@ function updateStatus(selectedMovie){
     }
 }
 
-subcontainer.addEventListener("click",function(e){
+subcontainer.addEventListener("click",(e) =>{
     if(e.target.classList.contains("seat")){
         if(!e.target.classList.contains("reserved")){
 
@@ -74,10 +74,10 @@ subcontainer.addEventListener("click",function(e){
     }
 });
 
-function seatCountInfos(selected){
+const seatCountInfos = () =>{
     count.innerText = selSeatCount;  
 }
 
-function payment(){
+const payment = () =>{
     amount.innerText = movieValue * selSeatCount;
 }
